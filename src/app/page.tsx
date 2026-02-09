@@ -1,6 +1,5 @@
 "use client";
 
-import { Nanum_Myeongjo } from "next/font/google";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
@@ -8,13 +7,8 @@ import { ExternalLink } from "lucide-react";
 
 import Contact from "@/components/contact";
 
+import { nanumMyeongjo } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-
-const nanumMyeongjo = Nanum_Myeongjo({
-  weight: ["700"],
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export default function Home() {
   return (
@@ -38,12 +32,12 @@ export default function Home() {
         </div>
 
         <div id="about-container" className="space-y-3">
-          <p className="text-sm text-muted">
+          <p className="text-sm">
             I&apos;m a software engineer with a passion for building products
             that are functional with additional attention to user-experience.
           </p>
 
-          <p className="text-sm text-muted">
+          <p className="text-sm">
             Graduate of{" "}
             <ExternalPageLink
               title="Te Herenga Waka - Victoria University of Wellington"
@@ -52,7 +46,7 @@ export default function Home() {
             , with a Bachelor of Science, majoring in Computer Science.
           </p>
 
-          <p className="text-sm text-muted">
+          <p className="text-sm">
             Currently implementing Airport Operational Systems (AOS) for major
             airports globally.{" "}
             <ExternalPageLink title="Veovo" link="https://www.veovo.com/" />
@@ -60,7 +54,7 @@ export default function Home() {
         </div>
 
         {/* Seperator */}
-        <div className="h-[1px] w-full bg-gray-300" />
+        <div className="h-[1px] w-full bg-border" />
 
         {/* Work Experience */}
         <div id="experience" className="space-y-1">
@@ -76,8 +70,8 @@ export default function Home() {
             <li>
               <ExternalPageLink title="Veovo" link="https://www.veovo.com/" />
               &nbsp;
-              <span className="text-sm text-muted">- Technical Consultant</span>
-              <p className="text-xs text-muted">June 2025 - Present</p>
+              <span className="text-sm">- Technical Consultant</span>
+              <p className="text-xs">June 2025 - Present</p>
             </li>
             <li>
               <ExternalPageLink
@@ -85,10 +79,10 @@ export default function Home() {
                 link="https://www.eclgroup.co.nz/"
               />
               &nbsp;
-              <span className="text-sm text-muted">
+              <span className="text-sm">
                 - Technical Support Representative
               </span>
-              <p className="text-xs text-muted">November 2024 - May 2025</p>
+              <p className="text-xs">November 2024 - May 2025</p>
             </li>
             <li>
               <ExternalPageLink
@@ -96,9 +90,9 @@ export default function Home() {
                 title="Te Herenga Waka"
               />
               &nbsp;
-              <span className="text-sm text-muted">- Tutor</span>
-              <p className="text-xs text-muted">2024</p>
-              <p className="text-xs text-muted">
+              <span className="text-sm">- Tutor</span>
+              <p className="text-xs">2024</p>
+              <p className="text-xs">
                 <span className="font-semibold">Courses:</span>&nbsp;
                 <ExternalPageLink
                   title="COMP132"
@@ -131,8 +125,8 @@ export default function Home() {
               title="Te Herenga Waka - Victoria University of Wellington"
               link="https://www.wgtn.ac.nz/"
             />
-            <p className="text-xs text-muted">2021 - 2024</p>
-            <p className="text-sm text-muted">
+            <p className="text-xs">2021 - 2024</p>
+            <p className="text-sm">
               Bachelor of Science | Major in Computer Science.
             </p>
           </div>
@@ -147,7 +141,7 @@ export default function Home() {
           >
             Skills
           </h6>
-          <div className="grid grid-cols-3 gap-x-4 text-sm text-muted">
+          <div className="grid grid-cols-3 gap-x-4 text-sm">
             <p className="col-span-1">Programming Languages:</p>
             <p className="col-span-2">
               C#, T-SQL, TypeScript, JavaScript, Python, Java, C++, HTML, CSS
@@ -160,17 +154,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Socials */}
+        {/* Socials/Contacts */}
         <Contact />
-
-        {/* <h6
-          className={cn(
-            "mt-4 text-sm font-bold text-muted opacity-80",
-            nanumMyeongjo.className
-          )}
-        >
-          New Portfolio in progress.
-        </h6> */}
       </div>
     </motion.main>
   );
@@ -189,10 +174,7 @@ const ExternalPageLink = ({
     <Link
       href={link}
       target="_blank"
-      className={cn(
-        "cursor-pointer text-sm text-muted hover:text-accent",
-        className
-      )}
+      className={cn("cursor-pointer text-sm hover:text-accent", className)}
     >
       {title}
       <ExternalLink className="mb-1 inline-block h-2 w-2 -translate-y-1 transform" />

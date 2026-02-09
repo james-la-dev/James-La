@@ -1,10 +1,9 @@
 "use client";
 
-import { Nanum_Myeongjo, Source_Code_Pro } from "next/font/google";
 import Link from "next/link";
 
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { ArrowUpRight, FileIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { ArrowUpRight, FileIcon, MailIcon } from "lucide-react";
 import { toast } from "sonner";
 
 import {
@@ -14,19 +13,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+import { nanumMyeongjo, sourceCodePro } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-
-const sourceCodePro = Source_Code_Pro({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const nanumMyeongjo = Nanum_Myeongjo({
-  weight: "700",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const copyText = (text: string) => {
   navigator.clipboard.writeText(text);
@@ -34,12 +22,6 @@ const copyText = (text: string) => {
 };
 
 const contact = [
-  {
-    name: "(+64) 21 174 9208",
-    onClick: () => copyText("+64 21 174 9208"),
-    icon: <PhoneIcon className="h-4 w-4" />,
-    tooltip: "Click to copy",
-  },
   {
     name: "hello@james-la.me",
     onClick: () => copyText("hello@james-la.me"),
@@ -114,12 +96,12 @@ const ContentContainer = ({
   contact: any;
 }) => {
   return (
-    <div className="flex w-full cursor-pointer flex-row items-center justify-between text-sm text-muted group-hover:text-accent">
+    <div className="flex w-full cursor-pointer flex-row items-center justify-between text-sm group-hover:text-accent">
       <span className="flex flex-row items-center text-sm">
         <span
           className={cn(
             sourceCodePro.className,
-            "text-xs text-muted opacity-80 transition-opacity duration-200 group-hover:opacity-0"
+            "text-xs opacity-80 transition-opacity duration-200 group-hover:opacity-0"
           )}
         >
           {index + 1}

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { Analytics } from "@vercel/analytics/react";
 
-import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 
 import { sanFranciscoPro } from "@/lib/fonts";
