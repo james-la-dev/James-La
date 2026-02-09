@@ -29,7 +29,9 @@ export default function Home() {
         className="flex max-w-3xl flex-col items-start gap-8"
       >
         <div id="heading-container" className="flex flex-row items-end gap-3">
-          <h5 className="text-2xl text-[#030303]">James La</h5>
+          <h5 className={cn(nanumMyeongjo.className, "text-xl text-[#030303]")}>
+            James La
+          </h5>
           <h5 className={cn(nanumMyeongjo.className, "text-xl text-[#030303]")}>
             [나 제임스]
           </h5>
@@ -38,8 +40,7 @@ export default function Home() {
         <div id="about-container" className="space-y-3">
           <p className="text-sm text-muted">
             I&apos;m a software engineer with a passion for building products
-            that are functional with additional attention to user-experience,
-            and a hint of aesthetics.
+            that are functional with additional attention to user-experience.
           </p>
 
           <p className="text-sm text-muted">
@@ -47,19 +48,14 @@ export default function Home() {
             <ExternalPageLink
               title="Te Herenga Waka - Victoria University of Wellington"
               link="https://www.wgtn.ac.nz/"
-              className="cursor-pointer text-primary hover:text-blue-900"
             />
             , with a Bachelor of Science, majoring in Computer Science.
           </p>
 
           <p className="text-sm text-muted">
             Currently implementing Airport Operational Systems (AOS) for major
-            airports airports globally.{" "}
-            <ExternalPageLink
-              title="Veovo"
-              link="https://www.veovo.com/"
-              className="cursor-pointer text-primary hover:text-blue-900"
-            />
+            airports globally.{" "}
+            <ExternalPageLink title="Veovo" link="https://www.veovo.com/" />
           </p>
         </div>
 
@@ -89,7 +85,9 @@ export default function Home() {
                 link="https://www.eclgroup.co.nz/"
               />
               &nbsp;
-              <span className="text-sm text-muted">- Help Desk Operator</span>
+              <span className="text-sm text-muted">
+                - Technical Support Representative
+              </span>
               <p className="text-xs text-muted">November 2024 - May 2025</p>
             </li>
             <li>
@@ -136,11 +134,6 @@ export default function Home() {
             <p className="text-xs text-muted">2021 - 2024</p>
             <p className="text-sm text-muted">
               Bachelor of Science | Major in Computer Science.
-            </p>
-            <p className="text-xs text-muted">
-              <span className="font-bold">Notable Courses:</span>&nbsp;Machine
-              Learning Tools and Techniques, Fundamentals of Artificial
-              Intelligence, Image-based Graphics, Advanced Network Applications
             </p>
           </div>
         </div>
@@ -197,7 +190,7 @@ const ExternalPageLink = ({
       href={link}
       target="_blank"
       className={cn(
-        "cursor-pointer text-sm text-muted hover:text-blue-900",
+        "cursor-pointer text-sm text-muted hover:text-accent",
         className
       )}
     >
