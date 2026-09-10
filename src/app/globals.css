@@ -2,39 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  #1a1a1a -> hsl(0, 0%, 10%) - background
-  #262626 -> hsl(0, 0%, 15%) - foreground  // heading containers etc
-  #e9e9e9 -> hsl(0, 0%, 91%) - primary  // selected or hover or direct eyes
-  #a3a3a3 -> hsl(0, 0%, 64%) - text-secondary // not selected (main)
-  #3c3c3c -> hsl(0, 0%, 24%) - border
-  #505050 -> hsl(0, 0%, 31%) - muted
-  #070707 -> hsl(0, 0%, 3%) - buttons
+/* CSS variable convetions:
+--background	The main page background (usually applied to <body>).
+--foreground	The default text color for the entire app.
+--primary	The background for the main action (e.g., "Submit" buttons).
+--primary-foreground	 The text color inside a primary button.
+--secondary	Background for less prominent elements (e.g., "Cancel" buttons, badges).
+--secondary-foreground	 The text color inside secondary elements.
+--muted	Subtle backgrounds (e.g., TabsList, Skeleton loaders, or cards).
+--muted-foreground	 De-emphasized text (e.g., timestamps, footers, or placeholders).
+--accent	Background for hover/active states on items like menu links.
+--accent-foreground	 The text color when an item is hovered or active.
+--border	The color for dividers, card outlines, and general structural lines.
+--input	The specific border color for form fields like <input> and <textarea>.
+--ring	The "focus ring" color that appears when you tab through elements.
 */
 
 @layer base {
   :root {
-    --background: 0, 0%, 91%;
-    --foreground: 0, 0%, 64%;
-    --card: 0, 0%, 91%;
-    --card-foreground: 0, 0%, 64%;
-    --popover: 0, 0%, 91%;
-    --popover-foreground: 0, 0%, 64%;
-    /* --primary: 221.2 83.2% 53.3%; */
-    --primary: 0, 0%, 10%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 0, 0%, 15%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 0, 0%, 31%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0, 0%, 31%;
-    --accent-foreground: 0 0% 9%;
+    /**************************************************************************/
+    /* Modern Ink - Refined & Completed */
+    /* * --background: 0 0% 98% (#FAFAFA - Near White)
+     * --foreground: 220 15% 15% (#202429 - Ink Blade)
+     * --primary: 220 15% 10% (#151A1F - Midnight Black)
+     * --primary-foreground: 0 0% 100% (#FFFFFF - Pure White)
+     * --secondary: 220 10% 94% (#F0F2F5 - Ghost Satin)
+     * --secondary-foreground: 220 15% 10% (#151A1F - Midnight Black)
+     * --muted: 220 10% 90% (#E0E4E8 - Mist)
+     * --muted-foreground: 220 10% 45% (#6B7785 - Steel Blue Gray)
+     * --accent: 220 10% 90% (#E0E4E8 - Ghost Gray)
+     * --accent-foreground: 220 15% 10% (#151A1F - Midnight Black)
+     * --border: 220 10% 88% (#E1E5E9 - Thin Ice)
+     * --input: 220 10% 88% (#E1E5E9 - Thin Ice)
+     * --ring: 220 15% 10% (#151A1F - Midnight Black)
+     */
+    /* --background: 0 0% 98%;
+    --foreground: 220 15% 15%;
+    --primary: 220 15% 10%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 10% 94%;
+    --secondary-foreground: 220 15% 10%;
+    --muted: 220 10% 90%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 220 10% 90%;
+    --accent-foreground: 220 15% 10%;
+    --border: 220 10% 88%;
+    --input: 220 10% 88%;
+    --ring: 220 15% 10%; */
+
+    /**************************************************************************/
+    /* Gallery Palette - Refined for Contrast & Consistency */
+    /* 
+     * --background: 30 20% 97% (#FAF7F2 - Soft Paper)
+     * --primary: 20 10% 12% (#1F1D1B - Deep Ink)
+     * --primary-foreground: 30 20% 98% (#FCFAF8 - Canvas)
+     * --foreground: 20 10% 15% (#262321 - Primary Text)
+     * --secondary: 30 10% 92% (#EDEAE6 - Warm Stone)
+     * --secondary-foreground: 20 10% 12% (#1F1D1B - Deep Ink)
+     * --muted: 30 5% 45% (#75706B - Gray Taupe)
+     * --muted-foreground: 30 5% 35% (#5C5854 - Deep Taupe)
+     * --accent: 15 100% 50% (#FF4500 - Burnt Orange Pop)
+     * --accent-foreground: 30 20% 98% (#FCFAF8 - Canvas)
+     * --border: 30 10% 88% (#E3DFD9 - Linen Line)
+     * --input: 30 10% 88% (#E3DFD9 - Linen Line)
+     * --ring: 20 10% 12% (#1F1D1B - Deep Ink)
+     */
+    --background: 30 20% 97%;
+    --primary: 20 10% 12%;
+    --primary-foreground: 30 20% 98%;
+    --foreground: 20 10% 15%;
+    --secondary: 30 10% 92%;
+    --secondary-foreground: 20 10% 12%;
+    --muted: 30 5% 45%;
+    --muted-foreground: 30 5% 35%;
+    --accent: 15 100% 50%;
+    --accent-foreground: 30 20% 98%;
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 20 10% 12%;
+
+    /**************************************************************************/
+    /* Industrial Brutalist - Light Theme */
+    /* * --background: 0 0% 96% (#F5F5F5 - Bleached Concrete)
+     * --foreground: 240 5% 10% (#181719 - Deep Iron)
+     * --primary: 240 2% 20% (#323235 - Rebar Steel)
+     * --primary-foreground: 0 0% 98% (#FAFAFA - Limestone)
+     * --secondary: 0 0% 88% (#E0E0E0 - Brushed Aluminum)
+     * --secondary-foreground: 240 5% 15% (#252527 - Cold Charcoal)
+     * --muted: 240 2% 90% (#E5E4E6 - Morning Mist)
+     * --muted-foreground: 240 2% 45% (#716F73 - Weathered Stone)
+     * --accent: 17 100% 50% (#FF4500 - Safety Orange)
+     * --accent-foreground: 0 0% 100% (#FFFFFF - Pure White)
+     * --border: 0 0% 15% (#262626 - Structural Steel)
+     * --input: 0 0% 85% (#D9D9D9 - Poured Cement)
+     * --ring: 17 100% 50% (#FF4500 - High-vis Orange)
+     */
+    /* --background: 0 0% 96%;
+    --foreground: 240 5% 10%;
+    --primary: 240 2% 20%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 88%;
+    --secondary-foreground: 240 5% 15%;
+    --muted: 240 2% 90%;
+    --muted-foreground: 240 2% 45%;
+    --accent: 17 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 85%;
+    --ring: 17 100% 50%; */
+
+    /**************************************************************************/
+    /* Global Utilities */
+    /* 
+     * --destructive: 0 84.2% 60.2% (#f56565 - Soft Red)
+     * --destructive-foreground: 0 0% 64% (#a3a3a3 - Silver Gray)
+     * --radius: 0.5rem
+     */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0, 0%, 64%;
-    --border: 0, 0%, 24%;
-    --input: 0, 0%, 24%;
-    --ring: 0, 0%, 64%;
+    --destructive-foreground: 0 0% 64%;
     --radius: 0.5rem;
+
+    /**************************************************************************/
+    /* Data Visualization */
+    /* 
+     * --chart-1: 12 76% 61% (#e88560 - Terracotta)
+     * --chart-2: 173 58% 39% (#2a9d8f - Pine Green)
+     * --chart-3: 197 37% 24% (#263d45 - Deep Teal)
+     * --chart-4: 43 74% 66% (#ead169 - Muted Gold)
+     * --chart-5: 27 87% 67% (#f4a261 - Peach Orange)
+     */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -43,25 +139,58 @@
   }
 
   .dark {
-    --background: 0, 0%, 10%;
-    --foreground: 0, 0%, 15%;
-    --card: 0, 0%, 10%;
-    --card-foreground: 0, 0%, 15%;
-    --popover: 0, 0%, 10%;
-    --popover-foreground: 0, 0%, 15%;
-    --primary: 0, 0%, 91%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 0, 0%, 64%;
+    /**************************************************************************/
+    /* Industrial Brutalist - Dark Theme */
+    /* 
+     * --background: 0 0% 10% (#1a1a1a - Near Black)
+     * --foreground: 0 0% 15% (#262626 - Dark Charcoal)
+     * --card: 0 0% 10% (#1a1a1a - Near Black)
+     * --card-foreground: 0 0% 15% (#262626 - Dark Charcoal)
+     * --popover: 0 0% 10% (#1a1a1a - Near Black)
+     * --popover-foreground: 0 0% 15% (#262626 - Dark Charcoal)
+     * --primary: 0 0% 91% (#e8e8e8 - Light Platinum)
+     * --primary-foreground: 222 47.4% 11.2% (#0f172a - Deep Navy)
+     * --secondary: 0 0% 64% (#a3a3a3 - Silver Gray)
+     * --secondary-foreground: 210 40% 98% (#f8fafc - Ghost White)
+     * --muted: 0 0% 24% (#3d3d3d - Graphite)
+     * --muted-foreground: 0 0% 63.9% (#a3a3a3 - Silver Gray)
+     * --accent: 0 0% 24% (#3d3d3d - Graphite)
+     * --accent-foreground: 0 0% 15% (#262626 - Dark Charcoal)
+     * --destructive: 0 62.8% 30.6% (#7c2020 - Deep Blood Red)
+     * --destructive-foreground: 0 0% 15% (#262626 - Dark Charcoal)
+     * --border: 0 0% 24% (#3d3d3d - Graphite)
+     * --input: 0 0% 24% (#3d3d3d - Graphite)
+     * --ring: 0 0% 83.1% (#d4d4d4 - Light Gray)
+     */
+    --background: 0 0% 10%;
+    --foreground: 0 0% 15%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 15%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 15%;
+    --primary: 0 0% 91%;
+    --primary-foreground: 222 47.4% 11.2%;
+    --secondary: 0 0% 64%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 0, 0%, 24%;
+    --muted: 0 0% 24%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 0, 0%, 24%;
-    --accent-foreground: 0, 0%, 15%;
+    --accent: 0 0% 24%;
+    --accent-foreground: 0 0% 15%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0, 0%, 15%;
-    --border: 0, 0%, 24%;
-    --input: 0, 0%, 24%;
+    --destructive-foreground: 0 0% 15%;
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
     --ring: 0 0% 83.1%;
+
+    /**************************************************************************/
+    /* Data Visualization - Dark Theme */
+    /* 
+     * --chart-1: 220 70% 50% (#2672db - Royal Blue)
+     * --chart-2: 160 60% 45% (#2db892 - Jade Green)
+     * --chart-3: 30 80% 55% (#e89235 - Golden Orange)
+     * --chart-4: 280 65% 60% (#a855f7 - Amethyst Purple)
+     * --chart-5: 340 75% 55% (#eb3b5a - Bright Crimson)
+     */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -74,7 +203,8 @@
   * {
     @apply !scroll-smooth border-border;
   }
+
   body {
-    @apply bg-background;
+    @apply bg-background tracking-normal text-foreground;
   }
 }

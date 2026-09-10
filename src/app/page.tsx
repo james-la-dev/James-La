@@ -1,6 +1,5 @@
 "use client";
 
-import { Nanum_Myeongjo } from "next/font/google";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
@@ -8,13 +7,8 @@ import { ExternalLink } from "lucide-react";
 
 import Contact from "@/components/contact";
 
+import { nanumMyeongjo } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-
-const nanumMyeongjo = Nanum_Myeongjo({
-  weight: ["700"],
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export default function Home() {
   return (
@@ -29,42 +23,38 @@ export default function Home() {
         className="flex max-w-3xl flex-col items-start gap-8"
       >
         <div id="heading-container" className="flex flex-row items-end gap-3">
-          <h5 className="text-2xl text-[#030303]">James La</h5>
+          <h5 className={cn(nanumMyeongjo.className, "text-xl text-[#030303]")}>
+            James La
+          </h5>
           <h5 className={cn(nanumMyeongjo.className, "text-xl text-[#030303]")}>
             [나 제임스]
           </h5>
         </div>
 
         <div id="about-container" className="space-y-3">
-          <p className="text-sm text-muted">
+          <p className="text-sm">
             I&apos;m a software engineer with a passion for building products
-            that are functional with additional attention to user-experience,
-            and a hint of aesthetics.
+            that are functional with additional attention to user-experience.
           </p>
 
-          <p className="text-sm text-muted">
+          <p className="text-sm">
             Graduate of{" "}
             <ExternalPageLink
               title="Te Herenga Waka - Victoria University of Wellington"
               link="https://www.wgtn.ac.nz/"
-              className="cursor-pointer text-primary hover:text-blue-900"
             />
             , with a Bachelor of Science, majoring in Computer Science.
           </p>
 
-          <p className="text-sm text-muted">
-            Currently providing support for fuel and retail systems throughout
-            Oceania at{" "}
-            <ExternalPageLink
-              title="ECL Group"
-              link="https://www.eclgroup.co.nz/"
-              className="cursor-pointer text-primary hover:text-blue-900"
-            />
+          <p className="text-sm">
+            Currently implementing Airport Operational Systems (AOS) for major
+            airports globally.{" "}
+            <ExternalPageLink title="Veovo" link="https://www.veovo.com/" />
           </p>
         </div>
 
         {/* Seperator */}
-        <div className="h-[1px] w-full bg-gray-300" />
+        <div className="h-[1px] w-full bg-border" />
 
         {/* Work Experience */}
         <div id="experience" className="space-y-1">
@@ -76,25 +66,33 @@ export default function Home() {
           >
             Work Experience
           </h6>
-          <div className="space-y-3">
-            <div>
+          <ul className="space-y-3">
+            <li>
+              <ExternalPageLink title="Veovo" link="https://www.veovo.com/" />
+              &nbsp;
+              <span className="text-sm">- Technical Consultant</span>
+              <p className="text-xs">June 2025 - Present</p>
+            </li>
+            <li>
               <ExternalPageLink
                 title="ECL Group"
                 link="https://www.eclgroup.co.nz/"
               />
               &nbsp;
-              <span className="text-sm text-muted">- Help Desk Operator</span>
-              <p className="text-xs text-muted">2024 - Present</p>
-            </div>
-            <div>
+              <span className="text-sm">
+                - Technical Support Representative
+              </span>
+              <p className="text-xs">November 2024 - May 2025</p>
+            </li>
+            <li>
               <ExternalPageLink
                 link="https://www.wgtn.ac.nz/"
                 title="Te Herenga Waka"
               />
               &nbsp;
-              <span className="text-sm text-muted">- Tutor</span>
-              <p className="text-xs text-muted">2024</p>
-              <p className="text-xs text-muted">
+              <span className="text-sm">- Tutor</span>
+              <p className="text-xs">2024</p>
+              <p className="text-xs">
                 <span className="font-semibold">Courses:</span>&nbsp;
                 <ExternalPageLink
                   title="COMP132"
@@ -108,8 +106,8 @@ export default function Home() {
                   className="text-xs"
                 />
               </p>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
         {/* Education */}
@@ -127,14 +125,9 @@ export default function Home() {
               title="Te Herenga Waka - Victoria University of Wellington"
               link="https://www.wgtn.ac.nz/"
             />
-            <p className="text-xs text-muted">2021 - 2024</p>
-            <p className="text-sm text-muted">
+            <p className="text-xs">2021 - 2024</p>
+            <p className="text-sm">
               Bachelor of Science | Major in Computer Science.
-            </p>
-            <p className="text-xs text-muted">
-              <span className="font-bold">Notable Courses:</span>&nbsp;Machine
-              Learning Tools and Techniques, Fundamentals of Artificial
-              Intelligence, Image-based Graphics, Advanced Network Applications
             </p>
           </div>
         </div>
@@ -148,31 +141,21 @@ export default function Home() {
           >
             Skills
           </h6>
-          <div className="grid grid-cols-3 gap-x-4 text-sm text-muted">
+          <div className="grid grid-cols-3 gap-x-4 text-sm">
             <p className="col-span-1">Programming Languages:</p>
             <p className="col-span-2">
-              TypeScript, JavaScript, Python, Java, C++, HTML, CSS
+              C#, T-SQL, TypeScript, JavaScript, Python, Java, C++, HTML, CSS
             </p>
-            <p className="col-span-1">Frameworks:</p>
+            <p className="col-span-1">Frameworks/Tools:</p>
             <p className="col-span-2">
-              React, Next.js, Node.js, Tailwind CSS, Node.js
+              Windows Server, MS SQL, .NET, React, Next.js, Node.js, Tailwind
+              CSS
             </p>
-            <p className="col-span-1">Tools:</p>
-            <p className="col-span-2">Unreal Engine 5, Godot 4, Blender</p>
           </div>
         </div>
 
-        {/* Socials */}
+        {/* Socials/Contacts */}
         <Contact />
-
-        <h6
-          className={cn(
-            "mt-4 text-sm font-bold text-muted opacity-80",
-            nanumMyeongjo.className
-          )}
-        >
-          New Portfolio in progress.
-        </h6>
       </div>
     </motion.main>
   );
@@ -191,10 +174,7 @@ const ExternalPageLink = ({
     <Link
       href={link}
       target="_blank"
-      className={cn(
-        "cursor-pointer text-sm text-muted hover:text-blue-900",
-        className
-      )}
+      className={cn("cursor-pointer text-sm hover:text-accent", className)}
     >
       {title}
       <ExternalLink className="mb-1 inline-block h-2 w-2 -translate-y-1 transform" />
